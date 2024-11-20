@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAREEK COLOURS</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="/assets/imgs/logo/favicon.png" type="image/png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      
+        <link rel="stylesheet" href="/assets1/css/flaticon.css">
+    <link rel="stylesheet" href="/assets/css/master.css">
+    
+   
+</head>
+<body>
+        <nav id="navigationbar"></nav>
+    
+
+        
+    <div id="preloader">
+        <img src="/assets/imgs/logo/pareek-new-logo.png" alt="image">
+      </div>  
+      <div class="icon-bar">
+		    
+        <a href="https://api.whatsapp.com/send?phone=+919903257867&amp;text=Hello,%20I%20am%20interested%20in%20buying%20your%20product." target="_blank" class="twitter"><i class="fab fa-whatsapp"></i></a> 
+        <div class="iq-waves">
+        <div class="waves wave-1"></div>
+        <div class="waves wave-2"></div>
+        </div>
+      </div>
+      <button type="button" class="booksite" id="bookSiteButton" onclick="openBanner()">Book free site visit</button>
+      <div class="vist-modal">
+          <div class="visit-banner" id="visitBanner">
+              <span class="close-btn" onclick="closeBanner()">&times;</span>
+              <div class="career-title">
+                  <h2>Book a Consultation with Us</h2>
+                  <p>Experience our expert assessment, consulting, and paint solutions. Schedule a meeting now.</p>
+              </div>
+              <form id="visit-form">
+                  <div class="line1">
+                      <div class="deal-group">
+                          <i class="fa-solid fa-user"></i>
+                          <input type="text" id="name" placeholder="Your name" name="name" class="car-input" required>
+                      </div>
+                      <div class="deal-group">
+                          <i class="fa-solid fa-headset"></i>
+                          <input type="text" id="phone" placeholder="Phone No." name="phone" class="car-input" required>
+                      </div>
+                  </div>
+                  <div class="line2">
+                      <div class="deal-group">
+                          <i class="fa-solid fa-envelope"></i>
+                          <input type="email" id="email" placeholder="Email ID" name="email" class="car-input" required>
+                      </div>
+                      <div class="deal-group designation">
+                          <i class="fa-solid fa-user"></i>
+                          <input type="text" id="designation" name="designation" placeholder="Your Profile/Designation" class="car-input" required>
+                      </div>
+                  </div>
+                  <div class="line3">
+                      <div class="deal-group resume">
+                          <i class="fa-solid fa-file-pdf"></i>
+                          <input type="text" id="resume" name="resume" class="car-input" placeholder="Message" style="position: relative;" required>
+                      </div>
+                  </div>
+                  <div class="deal-group" style="display: none;">
+                      <input type="hidden" id="websiteProjectId" name="websiteProjectId" value="66e2db81cb3d9f4f044cfc54">
+                  </div>
+                  <div class="deal-group deal-submit">
+                      <button type="submit" class="dealership-submit deal-group">Submit <i class="fa-solid fa-right-to-bracket"></i></button>
+                  </div>
+              </form>
+          </div>
+      </div>
+
+      <main id="product-full">
+    
+        <div class="product-details">
+            <img id="product-image" alt="Product Image">
+            <div class="des-title">
+            <h2 id="product-title"></h2>
+            <p id="product-description"></p>
+        </div>
+        </div>
+    
+        <h2 id="related">Related Products</h2>
+        <div id="related-products" class="related-products"></div>
+    </main>
+<footer id="footer"></footer>
+    
+<script>
+    const imagePath = "https://technolitics-s3-bucket.s3.ap-south-1.amazonaws.com/websitebuilder-s3-bucket/";
+    const apiUrl = "https://api.webbuilder.technolitics.com/api/v1/website-builder/website/product-management/get-all-products/66e2db81cb3d9f4f044cfc54?categories=";
+
+    function goBack() {
+        window.history.back();
+    }
+
+    async function loadProductDetails() {
+        // Retrieve selected product and category from localStorage
+        const productData = JSON.parse(localStorage.getItem('selectedProduct'));
+        const categoryId = localStorage.getItem('selectedCategory');
+        
+        if (!productData || !categoryId) {
+            console.error('Product or category data not found');
+            return;
+        }
+
+        // Display selected product details
+        document.getElementById('product-image').src = productData.image;
+        document.getElementById('product-title').textContent = productData.title;
+        document.getElementById('product-description').innerHTML = productData.description;
+
+        // Fetch related products in the same category
+        try {
+            const response = await fetch(apiUrl + categoryId);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+            console.log('Related Products API Response:', data);
+
+            const products = data.data; // Assuming products are in data.data
+            const relatedProductsContainer = document.getElementById('related-products');
+
+            if (!products || products.length === 0) {
+                console.error('No related products found');
+                return;
+            }
+
+            // Display related products, excluding the current product by ID
+            products.forEach(product => {
+                if (product._id !== productData.id) { // Exclude current product by _id
+                    const productCard = document.createElement('div');
+                    productCard.className = 'related-product-card';
+                    
+                    const productImage = document.createElement('img');
+                    productImage.src = imagePath + product.arrays.arrayOne[0];
+                    productImage.alt = product.title;
+
+                    const productTitle = document.createElement('h2');
+                    productTitle.textContent = product.title;
+
+                    // Add click event to open related product details
+                    productCard.addEventListener('click', () => {
+                        const newProductDetails = {
+                            id: product._id,       // Store the product ID for uniqueness
+                            image: productImage.src,
+                            title: product.title,
+                            description: product.description
+                        };
+                        localStorage.setItem('selectedProduct', JSON.stringify(newProductDetails));
+                        window.location.href = 'product-details.html'; // Reload to show the clicked related product
+                    });
+
+                    productCard.appendChild(productImage);
+                    productCard.appendChild(productTitle);
+                    relatedProductsContainer.appendChild(productCard);
+                }
+            });
+
+        } catch (error) {
+            console.error('Error fetching related products:', error);
+        }
+    }
+
+    loadProductDetails(); // Call to load product details and related products
+</script>
+<script src="assets1/js/categories.js"></script>
+    <script src="/assets/js/product.js"></script>
+    <script src="/assets/js/product-details.js"></script>
+    <script src="/assets/js/blogfull.js"></script>
+    <script src="/assets/js/slider.js"></script>
+    <script src="/assets/js/menu.js"></script>
+    <script src="assets/js/footer.js"></script>
+    <script src="/assets/js/navbar.js"></script>
+    <script src="/assets/js/enqire.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="/assets/js/gallery.js"></script>
+</body>
+</html>

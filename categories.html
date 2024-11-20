@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Categories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        #category-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .category-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .category-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <main>
+
+        <nav id="navigationbar"></nav>
+    
+
+        
+        <div id="preloader">
+            <img src="/assets/imgs/logo/pareek-new-logo.png" alt="image">
+          </div>  
+          <div class="icon-bar">
+                
+            <a href="https://api.whatsapp.com/send?phone=+919903257867&amp;text=Hello,%20I%20am%20interested%20in%20buying%20your%20product." target="_blank" class="twitter"><i class="fab fa-whatsapp"></i></a> 
+            <div class="iq-waves">
+            <div class="waves wave-1"></div>
+            <div class="waves wave-2"></div>
+            </div>
+          </div>
+          <button type="button" class="booksite" id="bookSiteButton" onclick="openBanner()">Book free site visit</button>
+          <div class="vist-modal">
+              <div class="visit-banner" id="visitBanner">
+                  <span class="close-btn" onclick="closeBanner()">&times;</span>
+                  <div class="career-title">
+                      <h2>Book a Consultation with Us</h2>
+                      <p>Experience our expert assessment, consulting, and paint solutions. Schedule a meeting now.</p>
+                  </div>
+                  <form id="visit-form">
+                      <div class="line1">
+                          <div class="deal-group">
+                              <i class="fa-solid fa-user"></i>
+                              <input type="text" id="name" placeholder="Your name" name="name" class="car-input" required>
+                          </div>
+                          <div class="deal-group">
+                              <i class="fa-solid fa-headset"></i>
+                              <input type="text" id="phone" placeholder="Phone No." name="phone" class="car-input" required>
+                          </div>
+                      </div>
+                      <div class="line2">
+                          <div class="deal-group">
+                              <i class="fa-solid fa-envelope"></i>
+                              <input type="email" id="email" placeholder="Email ID" name="email" class="car-input" required>
+                          </div>
+                          <div class="deal-group designation">
+                              <i class="fa-solid fa-user"></i>
+                              <input type="text" id="designation" name="designation" placeholder="Your Profile/Designation" class="car-input" required>
+                          </div>
+                      </div>
+                      <div class="line3">
+                          <div class="deal-group resume">
+                              <i class="fa-solid fa-file-pdf"></i>
+                              <input type="text" id="resume" name="resume" class="car-input" placeholder="Message" style="position: relative;" required>
+                          </div>
+                      </div>
+                      <div class="deal-group" style="display: none;">
+                          <input type="hidden" id="websiteProjectId" name="websiteProjectId" value="66e2db81cb3d9f4f044cfc54">
+                      </div>
+                      <div class="deal-group deal-submit">
+                          <button type="submit" class="dealership-submit deal-group">Submit <i class="fa-solid fa-right-to-bracket"></i></button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+    
+    <h1>Product Categories</h1>
+    <div id="category-container"></div>
+
+
+    <footer id="footer"></footer>
+    <script>
+        const categoryApiUrl = "https://api.webbuilder.technolitics.com/api/v1/website-builder/website/category/get-all-categories/66e2db81cb3d9f4f044cfc54";
+
+        async function fetchCategories() {
+            try {
+                const response = await fetch(categoryApiUrl);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                console.log('Category API Response:', data);
+
+                const categories = data.data; // Assuming categories are in data.data array
+                const categoryContainer = document.getElementById('category-container');
+
+                if (!categories || categories.length === 0) {
+                    console.error('No categories found');
+                    return;
+                }
+
+                categories.forEach(category => {
+                    const categoryCard = document.createElement('li');
+                    categoryCard.className = 'category-card';
+                    categoryCard.textContent = category.name; // Assuming the category name is here
+
+                    // On click, navigate to category-items page and store the category ID in localStorage
+                    categoryCard.addEventListener('click', () => {
+                        localStorage.setItem('selectedCategory', category._id); // Store the category ID
+                        window.location.href = 'category-items.html'; // Navigate to the category items page
+                    });
+
+                    categoryContainer.appendChild(categoryCard);
+                });
+
+            } catch (error) {
+                console.error('Error fetching categories:', error);
+            }
+        }
+
+        fetchCategories();
+    </script>
+
+
+</main>
+    <script src="assets1/js/script.js"></script>
+    <script src="assets1/js/jquery.js"></script>
+      <script src="assets/js/slider.js"></script>
+      <script src="assets/js/menu.js"></script>
+      <script src="assets1/js/owl.js"></script>
+      <script src="assets/js/gallery.js"></script>
+      <script src="assets/js/footer.js"></script>
+      <script src="assets/js/navbar.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+</body>
+</html>
