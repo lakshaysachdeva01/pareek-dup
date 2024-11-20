@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAREEK COLOURS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Muli:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/css/master.css">
+    <link rel="stylesheet" href="/assets1/css/flaticon.css">
+    <link rel="stylesheet" href="/assets1/css/owl.css">
+    <link rel="icon" href="/assets/imgs/logo/favicon.png" type="image/png">
+</head>
+<body>
+  <header>
+   <nav id="navigationbar"></nav>
+
+  </header>
+<main>
+ 
+    <div id="preloader">
+      <img src="/assets/imgs/logo/pareek-new-logo.png" alt="image">
+    </div>    
+
+    <div class="icon-bar">
+		    
+      <a href="https://api.whatsapp.com/send?phone=+919903257867&amp;text=Hello,%20I%20am%20interested%20in%20buying%20your%20product." target="_blank" class="twitter"><i class="fab fa-whatsapp"></i></a> 
+      <div class="iq-waves">
+      <div class="waves wave-1"></div>
+      <div class="waves wave-2"></div>
+      </div>
+    </div>
+    <button type="button" class="booksite" id="bookSiteButton" onclick="openBanner()">Book free site visit</button>
+    <div class="vist-modal">
+        <div class="visit-banner" id="visitBanner">
+            <span class="close-btn" onclick="closeBanner()">&times;</span>
+            <div class="career-title">
+                <h2>Book a Consultation with Us</h2>
+                <p>Experience our expert assessment, consulting, and paint solutions. Schedule a meeting now.</p>
+            </div>
+            <form id="visit-form">
+                <div class="line1">
+                    <div class="deal-group">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="name" placeholder="Your name" name="name" class="car-input" required>
+                    </div>
+                    <div class="deal-group">
+                        <i class="fa-solid fa-headset"></i>
+                        <input type="text" id="phone" placeholder="Phone No." name="phone" class="car-input" required>
+                    </div>
+                </div>
+                <div class="line2">
+                    <div class="deal-group">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="email" placeholder="Email ID" name="email" class="car-input" required>
+                    </div>
+                    <div class="deal-group designation">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="designation" name="designation" placeholder="Your Profile/Designation" class="car-input" required>
+                    </div>
+                </div>
+                <div class="line3">
+                    <div class="deal-group resume">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <input type="text" id="resume" name="resume" class="car-input" placeholder="Message" style="position: relative;" required>
+                    </div>
+                </div>
+                <div class="deal-group" style="display: none;">
+                    <input type="hidden" id="websiteProjectId" name="websiteProjectId" value="66e2db81cb3d9f4f044cfc54">
+                </div>
+                <div class="deal-group deal-submit">
+                    <button type="submit" class="dealership-submit deal-group">Submit <i class="fa-solid fa-right-to-bracket"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div id="popback"></div>
+    <div id="popup-banner">
+        <button id="close-popup">&times;</button>
+        <div id="popup-content">
+            <p>Welcome to PAREEK COLOURS</p>
+        </div>
+
+        <!-- Desktop Popup Banner -->
+        <div class="desktop-popup-banner">
+            <div class="swiper-container desktop-banner" id="desktop-popup-banners">
+                <div class="swiper-wrapper"></div>
+            </div>
+        </div>
+
+        <!-- Mobile Popup Banner -->
+        <div class="mobile-popup-banner">
+            <div class="swiper-container mobile-banner" id="mobile-popup-banners">
+                <div class="swiper-wrapper"></div>
+            </div>
+        </div>
+    </div>
+
+  <section id="background">
+    <div class="desktop-banner">
+        <div class="swiper-container">
+            <div class="swiper-wrapper" id="desktop-banners">
+                <!-- Dynamic content for desktop banners will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-banner">
+        <div class="swiper-container">
+            <div class="swiper-wrapper" id="mobile-banners">
+                <!-- Dynamic content for mobile banners will be inserted here -->
+            </div>
+        </div>
+    </div>
+</section>
+
+      <section class="about">
+        <div class="about-flex">
+          <div class="about-image">
+            <img src="/assets1/images/banner/about03.png" alt="banner">
+          </div>
+          <div class="about-text">
+            <h6><i class="flaticon-roof"></i>ABOUT PAREEK COLOURS</h6>
+            <h2>Paint Production to Expert Services</h2>
+            <p>From our roots in Kolkata, where we began producing Cement Paint and Wall Putty, our journey has been one of relentless expansion and innovation. Today, we not only stand as a 'Quality Product Manufacturer' but also offer a diverse range of professional services that complement our paint manufacturing expertise.</p>
+
+             <p class="p2"> From painting services that bring precision, quality, and vibrant colors to your spaces, to expert waterproofing solutions that ensure the longevity of your structures, and architectural consultancy services guiding you through innovative design concepts and practical solutions, we are dedicated to transforming and enhancing your spaces, proudly serving Kolkata and beyond.</p>        
+          </div>
+        </div>
+      </section>
+  
+
+      <section class="funfact-section">
+        <div class="auto-container">
+            <div class="inner-container clearfix wow fadeInLeft animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                <div class="counter-block-one">
+                    <div class="inner-box">
+                        <div class="shap-box" style="background-image: url(assets1/images/icons/line-1.png);"></div>
+                        <div class="icon-box"><i class="fa fa-paint-brush" aria-hidden="true"></i></div>
+                        <div class="count-outer count-box">
+                            <span class="count-text" data-speed="1500" data-stop="40">0</span><span>+</span>
+                        </div>
+                        <h3>Variety of Paints and Products Available</h3>
+                    </div>
+                </div>
+                <div class="counter-block-one">
+                    <div class="inner-box">
+                        <div class="shap-box" style="background-image: url(assets1/images/icons/line-2.png);"></div>
+                        <div class="icon-box"><i class="fa fa-tasks" aria-hidden="true"></i></div>
+                        <div class="count-outer count-box">
+                            <span class="count-text" data-speed="1500" data-stop="2.5">0</span><span>k+</span>
+                        </div>
+                        <h3>Successfully Completed Projects</h3>
+                    </div>
+                </div>
+                <div class="counter-block-one">
+                    <div class="inner-box">
+                        <div class="shap-box" style="background-image: url(assets1/images/icons/line-1.png);"></div>
+                        <div class="icon-box"><i class="flaticon-user"></i></div>
+                        <div class="count-outer count-box">
+                            <span class="count-text" data-speed="1500" data-stop="12">0</span><span>+</span>
+                        </div>
+                        <h3>Satisfied Customers Served Daily</h3>
+                    </div>
+                </div>
+                <div class="counter-block-one">
+                    <div class="inner-box">
+                        <div class="shap-box" style="background-image: url(assets1/images/icons/line-1.png);"></div>
+                        <div class="icon-box"><i class="flaticon-user"></i></div>
+                        <div class="count-outer count-box">
+                            <span class="count-text" data-speed="1500" data-stop="10">0</span><span>+</span>
+                        </div>
+                        <h3>Dedicated Team of Professionals</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+      <section class="home-services">
+        <div id="main-service" >
+        <div class="service-head">
+          <h6><i class="flaticon-roof"></i>Elevate Your Living Space</h6>
+          <p>Painting, Waterproofing, and Architectural Excellence</p>
+      </div>
+
+      <div class="service">
+          <div class="service-content">
+              <div class="service-box"><span></span>
+                  <div class="service-image">
+                      <img src="/assets/imgs/PAINTING_SERVICE.png" alt="paint-service">
+                  </div>
+                  <div class="service-text">
+                      
+                      <h5>Painting Services</h5>
+                      <p>Offers a comprehensive range of professional painting services, transforming spaces with
+                          precision, quality, and a vibrant spectrum of colors.</p>
+                  </div>
+                  <div class="service-enquire">
+                      <a href="service-enquire.html">Enquire Now <i class="flaticon-login"></i></a>
+                  </div>
+              </div>
+          </div>
+          <div class="service-content">
+              <div class="service-box"><span></span>
+                  <div class="service-image">
+                      <img src="/assets/imgs/WATERPROOFING_SERVICES.png" alt="waterproofing-service">
+                  </div>
+                  <div class="service-text">
+                      
+                      <h5>Waterproofing</h5>
+                      <p>With expertise in waterproofing solutions, We ensure the longevity of your structures,
+                          safeguarding them from moisture and weather damage .</p>
+                  </div>
+                  <div class="service-enquire">
+                      <a href="service-enquire.html">Enquire Now <i class="flaticon-login"></i></a>
+                  </div>
+              </div>
+          </div>
+          <div class="service-content">
+              <div class="service-box"><span></span>
+                  <div class="service-image">
+                      <img src="/assets/imgs/ARCHITECTURAL_SERVICES.png" alt="architectural-service">
+                  </div>
+                  <div class="service-text">
+                      
+                      <h5>Architectural Consultancy</h5>
+                      <p>We provide expert architectural consultancy services, guiding you through innovative design
+                          concepts and practical solutions to create spaces that blend aesthetics with functionality.
+                      </p>
+                  </div>
+                  <div class="service-enquire">
+                      <a href="service-enquire.html">Enquire Now <i class="flaticon-login"></i></a>
+
+
+
+                  </div>
+              </div>
+          </div>
+      </div>
+       </div>
+      
+      </section>
+
+      <section class="home-gallery">
+        <div class="gallery-home-head">
+          <h6><i class="flaticon-roof"></i>work gallery</h6>
+          <h2>Creative Showcase</h2>
+          <p>Highlighting our distinctive works</p>
+        </div>
+           <div id="port-section">
+          <div id="cont-portfolio">
+             <div id="gallery"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="home-testimonials">
+        <div id="test-container">
+          <div class="test-head">
+            <h6><i class="flaticon-roof"></i> Testimonials</h6>
+            <h2>Impressive</h2>
+            <p>Words from Customers</p>
+          </div>
+          <div class="testimonial-carousel owl-carousel owl-theme">
+            <div id="testimonials" class="swiper-wrapper"></div>
+          </div>
+        </div>
+      </section>
+      
+
+
+<section id="blogs">
+  <div class="blog-head">
+    <div class="blog-head-text">
+  <h6><i class="flaticon-roof"></i>blogs and announcements</h6>
+  <h3>Fresh <span>Insights and Updates</span></h3>
+</div>
+<div class="blog-button">
+  <span></span><a href="blogs.html">Read More <i class="flaticon-login"></i></a>
+</div>
+</div>
+  <div class="blog-container" id="blog-container">
+ </section>
+</div>
+
+     <footer id="footer"></footer>
+    </main>
+    <script src="assets/js/product.js"></script>
+    <script src="assets1/js/script.js"></script>
+    <script src="assets1/js/jquery.js"></script>
+      <script src="assets/js/slider.js"></script>
+      <script src="assets/js/menu.js"></script>
+      <script src="assets1/js/owl.js"></script>
+      <script src="assets/js/gallery.js"></script>
+      <script src="assets/js/footer.js"></script>
+      <script src="assets/js/navbar.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+</body>
+</html>
+
+
